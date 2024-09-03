@@ -1,0 +1,13 @@
+package com.hexaware.app.Controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.hexaware.app.Service.StudentService;
+
+@RestController
+public class StudentController {
+	@Autowired
+    StudentService studSer;
+	
+}

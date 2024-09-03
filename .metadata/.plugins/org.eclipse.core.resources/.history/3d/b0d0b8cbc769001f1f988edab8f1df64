@@ -1,0 +1,18 @@
+package com.hexaware.app.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hexaware.app.Dao.RepStudent;
+import com.hexaware.app.Entity.Student;
+
+@Service
+public class StudentService {
+	@Autowired
+   RepStudent RepSt;
+
+	public Student saveSt(Student s) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

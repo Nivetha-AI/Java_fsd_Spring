@@ -1,0 +1,12 @@
+package com.hexaware.app.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hexaware.app.Dao.RepStudent;
+
+@Service
+public class StudentService {
+	@Autowired
+ RepStudent RepSt;
+}

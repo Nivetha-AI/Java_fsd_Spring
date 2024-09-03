@@ -1,0 +1,36 @@
+package com.example.demo.Controller;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class MainController {
+
+//	@GetMapping("/home")
+//	public String home() {
+//		return "home";
+//	}
+//	@GetMapping("/contact")
+//	public String contact() {
+//		return "contact";
+//	}
+	
+	List <String> users=new ArrayList<>();
+	
+	MainController(){
+		users.add("ajay");
+		users.add("kavitha");
+		users.add("deepa");
+		users.add("Pooja");
+	}
+	
+	@GetMapping("/getData")
+	public List<String> getData(){
+		return (users);
+	}
+}

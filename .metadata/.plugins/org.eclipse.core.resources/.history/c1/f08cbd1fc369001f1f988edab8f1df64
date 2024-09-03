@@ -1,0 +1,5 @@
+package com.hexaware.app.Entity;
+
+public class Student {
+
+}

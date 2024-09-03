@@ -1,0 +1,14 @@
+package com.example.demo.Entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Bank {
+	@Id
+  int actNo;
+  String name;
+  double balance;
+  String email;
+  
+}

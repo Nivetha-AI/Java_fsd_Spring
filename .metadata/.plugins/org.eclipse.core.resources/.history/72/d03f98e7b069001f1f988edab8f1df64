@@ -1,0 +1,97 @@
+package com.example.demo;
+
+import java.util.Optional;
+import java.util.Scanner;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.example.demo.BankRepo.BankRepository;
+import com.example.demo.Entities.Bank;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(Application.class, args);
+		BankRepository rep = context.getBean(BankRepository.class);
+		Scanner sc = new Scanner(System.in);
+		// 1.to open an Account
+		
+		System.out.println("Enter Account Number : ");
+		int Acc = sc.nextInt();
+		System.out.println("Enter Name : ");
+		String nam = sc.next();
+		System.out.println("Enter balance : ");
+		double bal = sc.nextDouble();
+		System.out.println("Enter email : ");
+		String email = sc.next();
+		Bank b1 = new Bank(Acc, nam, bal, email);
+
+		if (b1.getBalance() > 1000) {
+			rep.save(b1);
+			System.out.println("Account opened");
+		} else {
+			System.out.println("Account not opened.Balance must >1000");
+		}
+		 
+
+		// 2 deposit
+		/*System.out.println("Enter Account Number : ");
+		int Accno = sc.nextInt();
+		System.out.println("Enter deposit : ");
+		double deposit = sc.nextDouble();
+		Optional<Bank> b = rep.findById(Accno);
+		if (b.isPresent()) {
+			Bank temp = b.get();
+
+			temp.setBalance(temp.getBalance() + deposit);
+			rep.save(temp);
+			System.out.println("Amount deposited ");
+		} else {
+			System.out.println("Account Not found");
+		}*/
+
+		// 3 Withdraw (can not be -)
+		/*System.out.println("Enter Account Number : ");
+		int Accno = sc.nextInt();
+		System.out.println("Enter withdraw : ");
+		double withdraw = sc.nextDouble();
+		Optional<Bank> b = rep.findById(Accno);
+		if (b.isPresent()) {
+			Bank temp = b.get();
+
+			if (temp.getBalance() >= withdraw) {
+				temp.setBalance(temp.getBalance() - withdraw);
+				rep.save(temp);
+				System.out.println("Amount withdrawn ");
+			} else {
+				System.out.println("Insufficient Balance");
+			}
+		} else {
+			System.out.println("Account Not found");
+		}*/
+
+		// 4.Search by Account Number
+		/*System.out.println("Enter Account Number : ");
+		int Accno = sc.nextInt();
+		Optional<Bank> b = rep.findById(Accno);
+		System.out.println(b);*/
+
+		// 6. close account
+		System.out.println("Enter Account Number : ");
+		int Accno = sc.nextInt();
+		Optional<Bank> b = rep.findById(Accno);
+		if (b.isPresent()) {
+			rep.deleteById(Accno);
+			System.out.println("Account Removed");
+		}
+
+		else {
+			System.out.println("Not Found");
+		}
+
+	}
+
+}
